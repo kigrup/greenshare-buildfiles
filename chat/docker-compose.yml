@@ -2,7 +2,7 @@ version: '3'
 services:
     chat:
         container_name: 'chat-service'
-        build: ./GreenShareChat
+        image: raulplesa/pes-chat-service
         ports:
             - '13005:80'
         depends_on:
