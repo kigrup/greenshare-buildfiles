@@ -1,0 +1,20 @@
+version: '3'
+services:
+    chat:
+        container_name: 'chat-service'
+        build: ./GreenShareChat
+        ports:
+            - '13005:80'
+        depends_on:
+            - 'pg'
+        restart: unless-stopped
+    pg:
+        image: 'postgres:14'
+        container_name: 'chat-service-db'
+        environment:
+            - 'POSTGRES_PASSWORD=root_password'
+            - 'POSTGRES_USER=root'
+            - 'POSTGRES_DB=chat'
+        volumes:
+            - ./pg/db_data:/var/lib/postgresql/data
+        restart: unless-stopped
