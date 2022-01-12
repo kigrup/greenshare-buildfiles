@@ -7,6 +7,7 @@ services:
             - 'mariadb'
         ports:
             - '80:13000'
+            - '443:13443'
         restart: unless-stopped
         volumes:
             - './.env:/app/.env'
